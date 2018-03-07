@@ -11,25 +11,46 @@ public class UserBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(unique = true)
-	private String number;
-	private String pwd;
+	private String name;
+	private int flag;
+	private boolean isyou;
+	private boolean isout;
+	private int mvp;
 	public Long getId() {
 		return id;
 	}
-	public String getNumber() {
-		return number;
+	public void setId(Long id) {
+		this.id = id;
 	}
-	public void setNumber(String number) {
-		this.number = number;
+	public String getName() {
+		return name;
 	}
-	public String getPwd() {
-		return pwd;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public int getFlag() {
+		return flag;
 	}
-
-
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
+	public boolean isIsyou() {
+		return isyou;
+	}
+	public void setIsyou(boolean isyou) {
+		this.isyou = isyou;
+	}
+	public boolean isIsout() {
+		return isout;
+	}
+	public void setIsout(boolean isout) {
+		this.isout = isout;
+	}
+	public int getMvp() {
+		return mvp;
+	}
+	public void setMvp(int mvp) {
+		this.mvp = mvp;
+	}
 	
 }
