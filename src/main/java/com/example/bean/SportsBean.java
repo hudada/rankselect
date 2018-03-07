@@ -11,6 +11,7 @@ public class SportsBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private Long webid;
 	private Long start;
 	private Long end;
 	private Long sid;
@@ -20,6 +21,13 @@ public class SportsBean {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Long getWebid() {
+		return webid;
+	}
+	public void setWebid(Long webid) {
+		this.webid = webid;
 	}
 	public Long getStart() {
 		return start;

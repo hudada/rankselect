@@ -11,6 +11,7 @@ public class UserBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private Long webid;
 	private String name;
 	private int flag;
 	private boolean isyou;
@@ -21,6 +22,13 @@ public class UserBean {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Long getWebid() {
+		return webid;
+	}
+	public void setWebid(Long webid) {
+		this.webid = webid;
 	}
 	public String getName() {
 		return name;
