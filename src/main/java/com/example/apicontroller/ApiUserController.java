@@ -3,6 +3,7 @@ package com.example.apicontroller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -32,6 +33,12 @@ public class ApiUserController {
 	@Autowired
 	private UserDao userDao;
 
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public BaseBean<List<UserBean>> getList(HttpServletRequest request) {
+		return ResultUtils.resultSucceed(userDao.findAll());
+	}
+	
+	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public BaseBean<UserBean> addUser(HttpServletRequest request) {
 			return ResultUtils.resultError("该账号已存在！");

@@ -11,24 +11,17 @@ public class UserBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Long webid;
 	private String name;
+	private int sex;  //0=男
 	private int flag;
-	private boolean isyou;
 	private boolean isout;
 	private int mvp;
+	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	
-	public Long getWebid() {
-		return webid;
-	}
-	public void setWebid(Long webid) {
-		this.webid = webid;
 	}
 	public String getName() {
 		return name;
@@ -36,17 +29,18 @@ public class UserBean {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public int getSex() {
+		return sex;
+	}
+	public void setSex(int sex) {
+		this.sex = sex;
+	}
 	public int getFlag() {
 		return flag;
 	}
 	public void setFlag(int flag) {
 		this.flag = flag;
-	}
-	public boolean isIsyou() {
-		return isyou;
-	}
-	public void setIsyou(boolean isyou) {
-		this.isyou = isyou;
 	}
 	public boolean isIsout() {
 		return isout;

@@ -8,9 +8,9 @@ import com.example.bean.UserBean;
 
 public interface UserDao extends JpaRepository<UserBean, Long> {
 
-    @Query("from UserBean b where b.number=:number")
-    UserBean findUserByNumber(@Param("number") String number);
-    
-    @Query("from UserBean b where b.number=:number and b.pwd=:pwd")
-    UserBean findUserByNumberAndPwd(@Param("number") String number,@Param("pwd") String pwd);
+//    @Query("from UserBean b where b.number=:number")
+//    UserBean findUserByNumber(@Param("number") String number);
+//    
+//    @Query("from UserBean b where b.number=:number and b.pwd=:pwd")
+//    UserBean findUserByNumberAndPwd(@Param("number") String number,@Param("pwd") String pwd);
 }

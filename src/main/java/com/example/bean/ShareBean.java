@@ -11,23 +11,17 @@ public class ShareBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Long webid;
 	private Long uid;
 	private String title;
 	private Long time;
 	private Double score;
+	private String info;
+	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	
-	public Long getWebid() {
-		return webid;
-	}
-	public void setWebid(Long webid) {
-		this.webid = webid;
 	}
 	public Long getUid() {
 		return uid;
@@ -52,6 +46,12 @@ public class ShareBean {
 	}
 	public void setScore(Double score) {
 		this.score = score;
+	}
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
 	}
 	
 }
