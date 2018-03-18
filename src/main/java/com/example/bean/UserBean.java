@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 @Entity
 public class UserBean {
 
@@ -16,6 +17,8 @@ public class UserBean {
 	private int flag;
 	private boolean isout;
 	private int mvp;
+	@Transient
+	private int action = 0;  //0=normal,1=add,2=update,3=delete
 	
 	public Long getId() {
 		return id;
@@ -53,6 +56,12 @@ public class UserBean {
 	}
 	public void setMvp(int mvp) {
 		this.mvp = mvp;
+	}
+	public int getAction() {
+		return action;
+	}
+	public void setAction(int action) {
+		this.action = action;
 	}
 	
 }

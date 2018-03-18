@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 @Entity
 public class ShareBean {
 
@@ -15,8 +16,10 @@ public class ShareBean {
 	private String title;
 	private Long time;
 	private Double score;
+	private Double score2;
 	private String info;
-	
+	@Transient
+	private int action = 0;  //0=normal,1=add,2=update,3=delete
 	public Long getId() {
 		return id;
 	}
@@ -52,6 +55,18 @@ public class ShareBean {
 	}
 	public void setInfo(String info) {
 		this.info = info;
+	}
+	public int getAction() {
+		return action;
+	}
+	public void setAction(int action) {
+		this.action = action;
+	}
+	public Double getScore2() {
+		return score2;
+	}
+	public void setScore2(Double score2) {
+		this.score2 = score2;
 	}
 	
 }

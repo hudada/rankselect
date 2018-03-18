@@ -19,7 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.bean.BaseBean;
+import com.example.bean.DbBean;
 import com.example.bean.UserBean;
+import com.example.dao.ShareDao;
+import com.example.dao.SportsDao;
 import com.example.dao.UserDao;
 import com.example.utils.ResultUtils;
 
@@ -27,23 +30,23 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping(value = "/api/user")
-public class ApiUserController {
+@RequestMapping(value = "/api")
+public class ApiController {
 
 	@Autowired
 	private UserDao userDao;
+	@Autowired
+	private ShareDao shareDao;
+	@Autowired
+	private SportsDao sportsDao;
 
-	@RequestMapping(value = "/change", method = RequestMethod.POST, produces = "application/json")
-	public BaseBean<List<UserBean>> getList(@RequestBody List<UserBean> data) {
-		for (UserBean userBean : data) {
-			userDao.save(userBean);
-		}
-		return ResultUtils.resultSucceed(userDao.findAll());
-	}
-
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public BaseBean<UserBean> addUser(HttpServletRequest request) {
-		return ResultUtils.resultError("该账号已存在！");
+	@RequestMapping(value = "/start", method = RequestMethod.GET)
+	public BaseBean<DbBean> getList(HttpServletRequest request) {
+		DbBean bean = new DbBean();
+		bean.setUserBeans(userDao.findAll());
+		bean.setShareBeans(shareDao.findAll());
+		bean.setSportsBeans(sportsDao.findAll());
+		return ResultUtils.resultSucceed(bean);
 	}
 
 }

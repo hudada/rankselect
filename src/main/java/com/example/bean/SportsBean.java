@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 @Entity
 public class SportsBean {
 
@@ -15,7 +16,8 @@ public class SportsBean {
 	private Long end;
 	private Long sid;
 	private String gift;
-	
+	@Transient
+	private int action = 0;  //0=normal,1=add,2=update,3=delete
 	public Long getId() {
 		return id;
 	}
@@ -45,6 +47,12 @@ public class SportsBean {
 	}
 	public void setGift(String gift) {
 		this.gift = gift;
+	}
+	public int getAction() {
+		return action;
+	}
+	public void setAction(int action) {
+		this.action = action;
 	}
 	
 }

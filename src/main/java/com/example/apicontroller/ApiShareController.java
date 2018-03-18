@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.bean.BaseBean;
+import com.example.bean.ShareBean;
 import com.example.bean.UserBean;
+import com.example.dao.ShareDao;
 import com.example.dao.UserDao;
 import com.example.utils.ResultUtils;
 
@@ -27,18 +29,18 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping(value = "/api/user")
-public class ApiUserController {
+@RequestMapping(value = "/api/share")
+public class ApiShareController {
 
 	@Autowired
-	private UserDao userDao;
+	private ShareDao shareDao;
 
 	@RequestMapping(value = "/change", method = RequestMethod.POST, produces = "application/json")
-	public BaseBean<List<UserBean>> getList(@RequestBody List<UserBean> data) {
-		for (UserBean userBean : data) {
-			userDao.save(userBean);
+	public BaseBean<List<ShareBean>> getList(@RequestBody List<ShareBean> data) {
+		for (ShareBean userBean : data) {
+			shareDao.save(userBean);
 		}
-		return ResultUtils.resultSucceed(userDao.findAll());
+		return ResultUtils.resultSucceed(shareDao.findAll());
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
